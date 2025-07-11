@@ -1,1 +1,23 @@
-<p>employee-dashboard works!</p>
+<div class="dashboard">
+  <h2>Welcome, {{ employeeName }}</h2>
+
+  <div class="summary">
+    <div class="card">
+      <h3>Leave Balance</h3>
+      <p>{{ leaveBalance }} days</p>
+    </div>
+    <div class="card">
+      <h3>Leaves Taken</h3>
+      <p>{{ leavesTaken }}</p>
+    </div>
+    <div class="card">
+      <h3>Pending Requests</h3>
+      <p>{{ pendingRequests }}</p>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a routerLink="/leave/apply" class="btn">Apply for Leave</a>
+    <a routerLink="/leave/history" class="btn secondary">View Leave History</a>
+  </div>
+</div>

@@ -1,1 +1,54 @@
-<p>leave-form works!</p>
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+  <label>
+    Employee Name:
+    <input type="text" formControlName="employeeName" />
+    <div *ngIf="form.get('employeeName')?.touched && form.get('employeeName')?.invalid">
+      <small *ngIf="form.get('employeeName')?.errors?.['required']">Name is required.</small>
+      <small *ngIf="form.get('employeeName')?.errors?.['minlength']">Minimum 3 characters.</small>
+    </div>
+  </label>
+
+  <label>
+    Leave Type:
+    <select formControlName="leaveType">
+      <option value="">--Select--</option>
+      <option value="annual">Annual</option>
+      <option value="sick">Sick</option>
+      <option value="unpaid">Unpaid</option>
+    </select>
+    <div *ngIf="form.get('leaveType')?.touched && form.get('leaveType')?.invalid">
+      <small>Leave type is required.</small>
+    </div>
+  </label>
+
+  <label>
+    Start Date:
+    <input type="date" formControlName="startDate" />
+    <div *ngIf="form.get('startDate')?.touched && form.get('startDate')?.invalid">
+      <small>Start date is required.</small>
+    </div>
+  </label>
+
+  <label>
+    End Date:
+    <input type="date" formControlName="endDate" />
+    <div *ngIf="form.get('endDate')?.touched && form.get('endDate')?.invalid">
+      <small>End date is required.</small>
+    </div>
+  </label>
+
+  <div *ngIf="workingDays() !== null" style="margin: 0.5rem 0;">
+    <strong>Working Days:</strong> {{ workingDays() }}
+  </div>
+
+  <label>
+    Reason:
+    <textarea formControlName="reason"></textarea>
+    <div *ngIf="form.get('reason')?.touched && form.get('reason')?.invalid">
+      <small *ngIf="form.get('reason')?.errors?.['required']">Reason is required.</small>
+      <small *ngIf="form.get('reason')?.errors?.['minlength']">Minimum 10 characters.</small>
+    </div>
+  </label>
+
+  <button type="submit">Submit</button>
+</form>

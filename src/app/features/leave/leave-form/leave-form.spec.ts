@@ -1,18 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { LeaveFormComponent } from './leave-form';
 
-import { LeaveForm } from './leave-form';
-
-describe('LeaveForm', () => {
-  let component: LeaveForm;
-  let fixture: ComponentFixture<LeaveForm>;
+describe('LeaveFormComponent', () => {
+  let component: LeaveFormComponent;
+  let fixture: ComponentFixture<LeaveFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LeaveForm]
-    })
-    .compileComponents();
+      imports: [LeaveFormComponent] // ✅ Standalone component
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(LeaveForm);
+    fixture = TestBed.createComponent(LeaveFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

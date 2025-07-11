@@ -1,1 +1,23 @@
-<p>manager-dashboard works!</p>
+<div class="dashboard">
+  <h2>Welcome, {{ managerName }}</h2>
+
+  <div class="summary">
+    <div class="card">
+      <h3>Pending Approvals</h3>
+      <p>{{ pendingApprovals }}</p>
+    </div>
+    <div class="card">
+      <h3>Team Members</h3>
+      <p>{{ totalTeamMembers }}</p>
+    </div>
+    <div class="card">
+      <h3>Approved Leaves</h3>
+      <p>{{ approvedLeaves }}</p>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a routerLink="/leave/history" class="btn">Review Leave History</a>
+    <a routerLink="/leave/apply" class="btn secondary">Apply Leave</a>
+  </div>
+</div>
